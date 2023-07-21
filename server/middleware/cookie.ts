@@ -1,3 +1,7 @@
 export default defineEventHandler((event) => {
-    event.context.cookie = getCookie(event, 'counter')
+    const counterCookie = getCookie(event, 'counter')
+    if (counterCookie) {
+        event.context.cookie = parseInt(counterCookie)
+    }
+
 })
